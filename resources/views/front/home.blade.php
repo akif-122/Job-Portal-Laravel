@@ -19,30 +19,36 @@
     <section class="section-1 py-5 ">
         <div class="container">
             <div class="card border-0 shadow p-5">
-                <div class="row">
-                    <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
-                        <input type="text" class="form-control" name="search" id="search" placeholder="Keywords">
-                    </div>
-                    <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
-                        <input type="text" class="form-control" name="search" id="search" placeholder="Location">
-                    </div>
-                    <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
-                        <select name="category" id="category" class="form-control">
-                            <option value="">Select a Category</option>
-                            <option value="">Engineering</option>
-                            <option value="">Accountant</option>
-                            <option value="">Information Technology</option>
-                            <option value="">Fashion designing</option>
-                        </select>
-                    </div>
+                <form action="{{ route("jobs") }}" method="GET">
+                    <div class="row">
+                        <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
+                            <input type="text" class="form-control" name="keyword" id="keyword" placeholder="Keywords">
+                        </div>
+                        <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
+                            <input type="text" class="form-control" name="location" id="location"
+                                placeholder="Location">
+                        </div>
+                        <div class="col-md-3 mb-3 mb-sm-3 mb-lg-0">
+                            <select name="category" id="category" class="form-control">
+                                <option value="">Select a Category</option>
 
-                    <div class=" col-md-3 mb-xs-3 mb-sm-3 mb-lg-0">
-                        <div class="d-grid gap-2">
-                            <a href="jobs.html" class="btn btn-primary btn-block">Search</a>
+                                @if ($allCategories->isNotEmpty())
+                                    @foreach ($allCategories as $allCategory)
+                                        <option value="{{ $allCategory->id }}">{{ $allCategory->name }}</option>
+                                    @endforeach
+                                @endif
+
+                            </select>
                         </div>
 
+                        <div class=" col-md-3 mb-xs-3 mb-sm-3 mb-lg-0">
+                            <div class="d-grid gap-2">
+                                <button type="submit"  class="btn btn-primary btn-block">Search</button>
+                            </div>
+
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </section>
@@ -55,7 +61,7 @@
                     @foreach ($categories as $category)
                         <div class="col-lg-4 col-xl-3 col-md-6">
                             <div class="single_catagory">
-                                <a href="jobs.html">
+                                <a href="{{ route("jobs")."?category=".$category->id }}">
                                     <h4 class="pb-2">{{ $category->name }}</h4>
                                 </a>
                                 <p class="mb-0"> <span>0</span> Available position</p>
@@ -129,7 +135,7 @@
                                         <div class="card border-0 p-3 shadow mb-4">
                                             <div class="card-body">
                                                 <h3 class="border-0 fs-5 pb-2 mb-0">{{ $latestJob->title }}</h3>
-                                                <p>{{ Str::words($latestJob->description, 5) }}</p>
+                                                <p>{{ Str::words(strip_tags($latestJob->description), 5) }}</p>
                                                 <div class="bg-light p-3 border">
                                                     <p class="mb-0">
                                                         <span class="fw-bolder"><i class="fa fa-map-marker"></i></span>

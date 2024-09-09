@@ -19,8 +19,8 @@
                 </div>
                 <div class="col-lg-9">
 
-                   @includeIf("front.message")
-                    
+                    @includeIf('front.message')
+
                     <form action="" id="userForm" name="userForm">
                         <div class="card border-0 shadow mb-4">
                             <div class="card-body  p-4">
@@ -35,7 +35,7 @@
                                     <label for="" class="mb-2">Email*</label>
                                     <input type="text" name="email" id="email" value="{{ $user->email }}"
                                         placeholder="Enter Email" class="form-control">
-                                        <p class="d-block"></p>
+                                    <p class="d-block"></p>
                                 </div>
 
                                 <div class="mb-4">
@@ -55,26 +55,33 @@
                         </div>
                     </form>
 
-                    <div class="card border-0 shadow mb-4">
-                        <div class="card-body p-4">
-                            <h3 class="fs-4 mb-1">Change Password</h3>
-                            <div class="mb-4">
-                                <label for="" class="mb-2">Old Password*</label>
-                                <input type="password" placeholder="Old Password" class="form-control">
+
+                    {{-- CHANGE PASSWORD --}}
+                    <form action="" id="changePassword" name="changePassword">
+                        <div class="card border-0 shadow mb-4">
+                            <div class="card-body p-4">
+                                <h3 class="fs-4 mb-1">Change Password</h3>
+                                <div class="mb-4">
+                                    <label for="" class="mb-2">Old Password*</label>
+                                    <input type="password" name="old_password" id="old_password" placeholder="Old Password" class="form-control">
+                                    <p class="d-block invalid-feedback"></p>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="" class="mb-2">New Password*</label>
+                                    <input type="password" name="new_password" id="new_password" placeholder="New Password" class="form-control">
+                                    <p class="d-block invalid-feedback"></p>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="" class="mb-2">Confirm Password*</label>
+                                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" class="form-control">
+                                    <p class="d-block invalid-feedback"></p>
+                                </div>
                             </div>
-                            <div class="mb-4">
-                                <label for="" class="mb-2">New Password*</label>
-                                <input type="password" placeholder="New Password" class="form-control">
-                            </div>
-                            <div class="mb-4">
-                                <label for="" class="mb-2">Confirm Password*</label>
-                                <input type="password" placeholder="Confirm Password" class="form-control">
+                            <div class="card-footer  p-4">
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </div>
-                        <div class="card-footer  p-4">
-                            <button type="button" class="btn btn-primary">Update</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -84,6 +91,67 @@
 
 @section('customJs')
     <script>
+
+        // CHANGE PASSWORD
+        $("#changePassword").submit(function(e){
+            e.preventDefault();
+            $.ajax({
+                url: "{{ route("changePassword") }}",
+                type: "post",
+                data: $("#changePassword").serializeArray(),
+                dataType: "json",
+                success: function(res){
+                    if(!res.status){
+                        let errors = res.errors;
+
+                        if(errors.old_password){
+                            $("#old_password")
+                            .addClass("is-invalid")
+                            .siblings("p").html(errors.old_password)
+                        }else{
+                            $("#old_password")
+                            .removeClass("is-invalid")
+                            .siblings("p").html("")
+                        }
+
+                        if(errors.new_password){
+                            $("#new_password")
+                            .addClass("is-invalid")
+                            .siblings("p").html(errors.new_password)
+                        }else{
+                            $("#new_password")
+                            .removeClass("is-invalid")
+                            .siblings("p").html("")
+                        }
+                        if(errors.confirm_password){
+                            $("#confirm_password")
+                            .addClass("is-invalid")
+                            .siblings("p").html(errors.confirm_password)
+                        }else{
+                            $("#confirm_password")
+                            .removeClass("is-invalid")
+                            .siblings("p").html("")
+                        }
+                        
+                    }else{
+                        $("#old_password")
+                            .removeClass("is-invalid")
+                            .siblings("p").html("");
+                        $("#new_password")
+                            .removeClass("is-invalid")
+                            .siblings("p").html("");
+                        $("#confirm_password")
+                            .removeClass("is-invalid")
+                            .siblings("p").html("");
+
+                        window.location.reload();
+                        // console.log(res)
+                    }
+                }
+            })
+        })
+
+
         $("#userForm").submit(function(e) {
             e.preventDefault();
 
@@ -136,11 +204,11 @@
                             .siblings("p")
                             .removeClass("invalid-feedback")
                             .html("");
-                        
+
                         window.location.reload()
                         // window.location.href = "{{ route('account.profile') }}"
-                            
-                            
+
+
                     }
                 }
             })

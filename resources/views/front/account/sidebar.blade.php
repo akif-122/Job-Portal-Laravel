@@ -1,10 +1,10 @@
 <div class="card border-0 shadow mb-4 p-3">
     <div class="s-body text-center mt-3">
         @if (Auth::user()->image != '')
-            <img src="{{ asset('profile_pic/' . Auth::user()->image) }}" alt="avatar" class="rounded-circle img-fluid"
-                >
+            <img src="{{ asset('profile_pic/' . Auth::user()->image) }}" alt="avatar" class="rounded-circle img-fluid">
         @else
-            <img src="{{ asset("assets/images/avatar7.png")}}" alt="avatar" class="rounded-circle img-fluid" style=" width: "150px;">
+            <img src="{{ asset('assets/images/avatar7.png') }}" alt="avatar" class="rounded-circle img-fluid"
+                style=" width:150px;">
         @endif
 
         <h5 class="mt-3 pb-0">{{ Auth::user()->name }}</h5>
@@ -19,19 +19,19 @@
     <div class="card-body p-0">
         <ul class="list-group list-group-flush ">
             <li class="list-group-item d-flex justify-content-between p-3">
-                <a href="{{ route("account.profile") }}">Account Settings</a>
+                <a href="{{ route('account.profile') }}">Account Settings</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <a href="{{ route("account.createJob") }}">Post a Job</a>
+                <a href="{{ route('account.createJob') }}">Post a Job</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <a href="{{ route("account.myJobs") }}">My Jobs</a>
+                <a href="{{ route('account.myJobs') }}">My Jobs</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <a href="job-applied.html">Jobs Applied</a>
+                <a href="{{ route('account.myJobApplication') }}">Jobs Applied</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
-                <a href="saved-jobs.html">Saved Jobs</a>
+                <a href="{{ route("account.savedJobs") }}">Saved Jobs</a>
             </li>
             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                 <a href="{{ route('account.logout') }}">Logout</a>

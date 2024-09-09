@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Job;
+use App\Models\JobApplication;
 use App\Models\JobType;
+use App\Models\SavedJob;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -181,8 +183,9 @@ class AccountController extends Controller
         ]);
     }
 
-    function saveJob(Request $req)
+    function createSaveJob(Request $req)
     {
+
 
         $validator = Validator::make($req->all(), [
             "title" => "required",
@@ -324,8 +327,110 @@ class AccountController extends Controller
         Job::where("id", $req->jobId)->delete();
         session()->flash("success", "Job Deleted Successfully");
         return response()->json([
-            "status"=> true
+            "status" => true
         ]);
-        
+    }
+
+
+    function myJobApplication()
+    {
+        $jobs = JobApplication::where("user_id", Auth::user()->id)->with(["job", "job.jobType"])->get();
+        // return $jobs;
+        // $application = JobApplication::where("job_id", $jobs->job->id)->count();
+        // return $application;
+        return view("front.account.job.my-job-application", ["jobsApplied" => $jobs]);
+    }
+
+    function deleteMyJobApplication(Request $req)
+    {
+        $job = JobApplication::where("id", $req->id)->delete();
+
+        if ($job) {
+            session()->flash("success", "Removed Successfully!");
+            return response()->json([
+                "status" => true,
+                "message" => "Deleted Successfully."
+            ]);
+        } else {
+            return response()->json([
+                "status" => false,
+                "message" => "Something goes wrong."
+            ]);
+        }
+    }
+
+
+    function savedJob(Request $req)
+    {
+        $saveJob = SavedJob::where(["job_id" => $req->id, "user_id" => Auth::user()->id])->first();
+        // return response()->json([
+        //     $saveJob
+        // ]);
+        if (!$saveJob) {
+            $savedJob = new SavedJob();
+            $savedJob->job_id = $req->id;
+            $savedJob->user_id = Auth::user()->id;
+            $savedJob->save();
+
+            session()->flash("success", "Job saved successfully!");
+            return response()->json([
+                "status" => true,
+                "message" => "Job Saved",
+            ]);
+        } else {
+            $saveJob = SavedJob::where(["job_id" => $req->id, "user_id" => Auth::user()->id])->first()->delete();
+            session()->flash("success", "Job removed successfully!");
+            return response()->json([
+                "status" => true,
+                "message" => "Job Saved",
+            ]);
+        }
+    }
+
+    // MY SAVED JOB VIEW
+    function savedJobs()
+    {
+        $savedJobs = SavedJob::where("user_id", Auth::user()->id)->with("job", "job.jobType")->get();
+        return view("front.account.job.saved-jobs", ["savedJobs" => $savedJobs]);
+    }
+
+
+
+    // CHANGE PASSWORD
+    function changePassword(Request $req)
+    {
+
+        $validator = Validator::make($req->all(), [
+            "old_password" => "required",
+            "new_password" => "required|min:3|same:confirm_password",
+            "confirm_password" => "required|min:3|same:new_password",
+        ]);
+
+        if ($validator->passes()) {
+            $oldPassword = Hash::check($req->old_password, Auth::user()->password);
+
+            if (!$oldPassword) {
+                session()->flash("error", "Your old password is incorrect!");
+                return response()->json([
+                    "status" => true,
+                    "errors" => []
+                ]);
+            }
+
+            $user = User::find(Auth::user()->id);
+            $user->password = Hash::make($req->new_password);
+            $user->save();
+            session()->flash("success", "Password Change successfully!");
+
+            return response()->json([
+                "status" => true,
+                "errors" => []
+            ]);
+        } else {
+            return response()->json([
+                "status" => false,
+                "errors" => $validator->errors()
+            ]);
+        }
     }
 }
