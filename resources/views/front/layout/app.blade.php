@@ -100,7 +100,7 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
     <script>
-        $('.textarea').trumbowyg();
+       
 
         $.ajaxSetup({
             headers: {

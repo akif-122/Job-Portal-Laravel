@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2024 at 07:47 AM
+-- Generation Time: Sep 16, 2024 at 11:43 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -106,7 +106,6 @@ INSERT INTO `jobs` (`id`, `title`, `category_id`, `job_type_id`, `user_id`, `vac
 (34, 'Augustine Berge', 3, 2, 3, 5, NULL, 'Iciechester', 'Quibusdam tenetur rerum quo voluptate. Dolores ut id sed quaerat molestias ea aliquid. Voluptates aperiam voluptatem aperiam eligendi odit vel. Rem quis ad ut aut rerum sapiente enim fugit.', NULL, NULL, NULL, NULL, '1', 'Emmie Feil DVM', 1, 0, NULL, NULL, '2024-08-16 12:41:40', '2024-08-16 12:41:40'),
 (35, 'Katelynn Nikolaus IV', 1, 2, 4, 1, NULL, 'Brianneside', 'Nihil quia dolorem aut quos laboriosam non nulla. Vel omnis sit fuga aliquam dignissimos reiciendis pariatur. Rerum unde qui consequatur et commodi perspiciatis rerum. Est voluptate optio dolorum.', NULL, NULL, NULL, NULL, '6', 'Dennis Schulist', 1, 0, NULL, NULL, '2024-08-16 12:41:40', '2024-08-16 12:41:40'),
 (36, 'Mellie Cartwright', 2, 5, 4, 5, NULL, 'West Emmitt', 'Incidunt nihil ratione error quas necessitatibus. Assumenda qui nihil sit magnam excepturi aut. Sit ullam repudiandae id praesentium. Possimus et repudiandae et eaque fugit.', NULL, NULL, NULL, NULL, '9', 'Anastacio Barton Jr.', 1, 1, NULL, NULL, '2024-08-16 12:41:40', '2024-08-16 12:41:40'),
-(37, 'Dr. Kailyn Kassulke', 3, 1, 3, 5, NULL, 'Austinmouth', 'Repudiandae soluta quasi est dolor nisi nemo. Non reprehenderit quia aspernatur harum ratione itaque itaque. Consequatur repellendus quis quisquam nam ab. Deserunt et nisi voluptate quia.', NULL, NULL, NULL, NULL, '5', 'Brandi Kiehn', 1, 0, NULL, NULL, '2024-08-16 12:43:51', '2024-08-16 12:43:51'),
 (39, 'Prof. Jerome Jacobi Sr.', 1, 5, 3, 2, NULL, 'South Alanatown', 'Nisi quas molestias molestiae ad rerum quaerat iste tempore. Eaque ut voluptatum unde placeat et ipsum officiis. Omnis iusto rerum iure architecto sunt ut qui.', NULL, NULL, NULL, NULL, '10', 'Susana Skiles MD', 1, 1, NULL, NULL, '2024-08-16 12:43:51', '2024-08-16 12:43:51'),
 (40, 'Raphael Brekke', 2, 2, 3, 1, NULL, 'New Celinehaven', 'Totam et quam et velit in suscipit. Quod molestiae nesciunt sed magnam beatae cumque dolor.', NULL, NULL, NULL, NULL, '2', 'Dorris Mraz', 1, 0, NULL, NULL, '2024-08-16 12:43:51', '2024-08-16 12:43:51'),
 (41, 'Lawson Kshlerin', 4, 5, 3, 1, NULL, 'North Luciousview', 'Reprehenderit corporis illum ratione aspernatur dolores architecto. Eos non corporis illo. Voluptatem aliquam labore eos reprehenderit.', NULL, NULL, NULL, NULL, '6', 'Micheal Sipes IV', 1, 0, NULL, NULL, '2024-08-16 12:43:51', '2024-08-16 12:43:51'),
@@ -127,8 +126,7 @@ INSERT INTO `jobs` (`id`, `title`, `category_id`, `job_type_id`, `user_id`, `vac
 (56, 'Kayla Kemmer', 1, 3, 3, 5, NULL, 'East Marjorymouth', 'Illo impedit nam sit. Dicta voluptatem debitis enim nihil rerum. Ea ducimus nostrum exercitationem culpa excepturi quam voluptas.', NULL, NULL, NULL, NULL, '1', 'Dr. Matteo Rath', 1, 0, NULL, NULL, '2024-08-16 12:43:51', '2024-08-16 12:43:51'),
 (57, 'Kenny Schultz', 2, 1, 3, 1, NULL, 'Carmenville', 'Quia non ab molestiae fugit voluptatibus. Sit voluptas saepe molestias quae consequatur quis. Quisquam quidem nobis labore similique.', NULL, NULL, NULL, NULL, '7', 'Iliana Hoppe', 1, 0, NULL, NULL, '2024-08-16 12:43:51', '2024-08-16 12:43:51'),
 (58, 'Shaylee Schultz', 3, 1, 3, 3, NULL, 'Lake Cordia', 'Molestiae voluptas voluptatem ducimus deleniti. Voluptatem dolores voluptates et est et. Consequuntur aliquid corrupti omnis qui error.', NULL, NULL, NULL, NULL, '3', 'Miss Alvera Lehner Sr.', 1, 0, NULL, NULL, '2024-08-16 12:43:51', '2024-08-16 12:43:51'),
-(64, 'Web Developer', 2, 1, 3, 10, '100K', 'Peshawar', 'Not Available', NULL, NULL, NULL, NULL, '3', 'No Company', 1, 1, NULL, NULL, '2024-08-18 23:03:38', '2024-08-18 23:03:38'),
-(65, 'Text Editor', 2, 1, 3, 23, '100K', 'Peshawar', '<h1 style=\"margin-bottom: 10px; padding-bottom: 0px; font-family: DauphinPlain; font-size: 24px; line-height: 24px; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h1><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; padding: 0px; text-align: justify; color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px;\"><strong style=\"margin: 0px; padding: 0px;\">Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', '<p><ol><li><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</span></li><li><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy.</span></li><li><span style=\"color: rgb(0, 0, 0); font-family: &quot;Open Sans&quot;, Arial, sans-serif; font-size: 14px; text-align: justify;\">&nbsp;Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</span></li></ol></p>', '<h1 style=\"margin-bottom: 10px; line-height: 24px; font-size: 24px; padding-bottom: 0px; font-family: DauphinPlain; color: rgb(0, 0, 0);\">What is Lorem Ipsum?</h1><p style=\"margin-right: 0px; margin-bottom: 15px; margin-left: 0px; font-size: 14px; font-family: &quot;Open Sans&quot;, Arial, sans-serif; padding: 0px; text-align: justify; color: rgb(0, 0, 0);\"><span style=\"font-weight: bolder; margin: 0px; padding: 0px;\">Lorem Ipsum</span>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', NULL, NULL, '2', 'Webspires', 1, 0, NULL, NULL, '2024-08-31 01:22:48', '2024-08-31 01:22:48');
+(64, 'Web Developer 2', 2, 1, 3, 10, '100K', 'Peshawar', 'Not Available', NULL, NULL, NULL, NULL, '3', 'No Company', 1, 1, NULL, NULL, '2024-08-18 23:03:38', '2024-09-09 02:07:39');
 
 -- --------------------------------------------------------
 
@@ -145,13 +143,6 @@ CREATE TABLE `job_applications` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `job_applications`
---
-
-INSERT INTO `job_applications` (`id`, `job_id`, `user_id`, `employer_id`, `applied_date`, `created_at`, `updated_at`) VALUES
-(14, 64, 9, 3, '2024-08-30 05:20:27', '2024-08-30 05:20:27', '2024-08-30 05:20:27');
 
 -- --------------------------------------------------------
 
@@ -220,6 +211,13 @@ CREATE TABLE `password_reset_tokens` (
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `password_reset_tokens`
+--
+
+INSERT INTO `password_reset_tokens` (`email`, `token`, `created_at`) VALUES
+('Akifullah0317@gmail.com', 'Fk2gPmr0lvwPZhDBikH1V8JFBZh12DVCKWyhS667ZXPSEHKkHYRj9Z6h2gdw', '2024-09-16 04:42:40');
+
 -- --------------------------------------------------------
 
 --
@@ -259,7 +257,6 @@ CREATE TABLE `saved_jobs` (
 
 INSERT INTO `saved_jobs` (`id`, `job_id`, `user_id`, `created_at`, `updated_at`) VALUES
 (24, 64, 3, '2024-08-30 11:29:55', '2024-08-30 11:29:55'),
-(25, 37, 3, '2024-08-30 11:30:31', '2024-08-30 11:30:31'),
 (27, 64, 9, '2024-08-30 22:35:53', '2024-08-30 22:35:53');
 
 -- --------------------------------------------------------
@@ -288,10 +285,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `image`, `designation`, `mobile`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'Akif Ullah', 'akifullah0317@gmail.com', NULL, '$2y$10$VXhabBFSTF74Ndk5nyxD4eiGSfJdlJ00rCtiBrU.gfDTfXsY258Y2', NULL, 'Web Developer', '03176186273', 'admin', NULL, '2024-08-08 11:47:39', '2024-08-31 00:37:03'),
+(3, 'Akif Ullah', 'akifullah0317@gmail.com', NULL, '$2y$10$wAbygFMN.RbGKjKxkJR1uedWHPGxfT.zPSUSp/Lzx2NKk4V.v.Y7y', NULL, 'Web Developer', '03176186273', 'admin', NULL, '2024-08-08 11:47:39', '2024-09-16 04:43:16'),
 (4, 'Ms. Lavinia Hauck', 'robin.luettgen@example.net', '2024-08-15 04:23:23', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, '789523479523498', 'user', 'svzmRSOvT5', '2024-08-15 04:23:23', '2024-09-02 02:15:47'),
 (7, 'Oswald Wyman', 'zetta.hansen@example.com', '2024-08-15 04:23:23', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, 'user', 'bbPB95z9aZ', '2024-08-15 04:23:23', '2024-08-15 04:23:23'),
-(8, 'Adalberto Torphy', 'leonie.bode@example.net', '2024-08-15 04:23:23', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, NULL, NULL, 'user', 'nfUEfcJ5YM', '2024-08-15 04:23:23', '2024-08-15 04:23:23'),
 (9, 'Demo', 'demo@gmail.com', NULL, '$2y$10$clDtko0sc1NMWi.67NM24Oyl0CYF5MMc04ccl7.1Hpf9nvqN39uFO', NULL, 'Web Develper', '03434934935', 'user', NULL, '2024-08-29 00:52:32', '2024-08-29 01:58:51');
 
 --
